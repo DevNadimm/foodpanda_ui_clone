@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodpanda_ui_clone/location_access_screen.dart';
-import 'package:foodpanda_ui_clone/splash_screen.dart';
+import 'package:foodpanda_ui_clone/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
