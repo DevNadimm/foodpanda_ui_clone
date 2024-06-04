@@ -1,16 +1,19 @@
-# foodpanda_ui_clone
+# FoodPanda App UI Clone
 
-A new Flutter project.
+This project is a Flutter UI clone of the FoodPanda app. It aims to replicate the design and user interface of the original app.
+
+## Features
+- Browse restaurants and menus
+- Place orders
+- View order history
+- ...
 
 ## Getting Started
+1. Make sure you have Flutter and Dart installed.
+2. Clone this repository.
+3. Run `flutter pub get` to install dependencies.
+4. Launch the app using `flutter run`.
 
-This project is a starting point for a Flutter application.
+Feel free to customize and enhance the UI as needed!
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+!FoodPanda Clone
