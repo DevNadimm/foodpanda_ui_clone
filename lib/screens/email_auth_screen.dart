@@ -132,7 +132,7 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
                       return 'Please enter your email';
                     }
                     const pattern =
-                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$';
                     final regex = RegExp(pattern);
                     if (!regex.hasMatch(value)) {
                       return 'Enter a valid email address';
