@@ -92,9 +92,24 @@ class _PasswordScreenState extends State<PasswordScreen> {
                 const SizedBox(
                   height: 8,
                 ),
-                Text(
-                  'Log in with your password to ${widget.email}. Or get a log in link via email.',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                    ),
+                    children: [
+                      const TextSpan(text: 'Log in with your password to '),
+                      TextSpan(
+                        text: widget.email,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const TextSpan(text: '. Or get a log in link via email.'),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 22,
@@ -145,7 +160,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off,
-                        color: Colors.grey,
+                        color: const Color(0XFFff2b85), // Updated color
                       ),
                       onPressed: _togglePasswordVisibility,
                     ),
