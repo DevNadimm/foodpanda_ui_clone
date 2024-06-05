@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class PasswordScreen extends StatefulWidget {
   final String email;
@@ -29,13 +30,23 @@ class _PasswordScreenState extends State<PasswordScreen> {
     });
   }
 
+  void _navigateToHomeScreen() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const HomeScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0XFFff2b85),
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 12),
+          padding:
+              const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 12),
           color: Colors.white,
           child: Form(
             key: _formKey,
@@ -57,14 +68,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: isPasswordValid
-                          ? () {
-                        // Perform your action here
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Password is valid!')),
-                        );
-                      }
-                          : null,
+                      onTap: isPasswordValid ? _navigateToHomeScreen : null,
                       child: Text(
                         'Continue  ',
                         style: TextStyle(
@@ -81,12 +85,12 @@ class _PasswordScreenState extends State<PasswordScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                Image.asset('images/email_icon.png', scale: 4.6), // Change this to a relevant icon
+                Image.asset('images/email_icon.png', scale: 4.6),
                 const SizedBox(
                   height: 15,
                 ),
                 const Text(
-                  'Log in with your email', // Updated text
+                  'Log in with your email',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
@@ -160,7 +164,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off,
-                        color: const Color(0XFFff2b85), // Updated color
+                        color: const Color(0XFFff2b85),
                       ),
                       onPressed: _togglePasswordVisibility,
                     ),
@@ -185,9 +189,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
-                      // Handle "Forgot Password"
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Forgot Password clicked')),
+                        const SnackBar(
+                          content: Text('Forgot Password clicked'),
+                        ),
                       );
                     },
                     child: const Text(
