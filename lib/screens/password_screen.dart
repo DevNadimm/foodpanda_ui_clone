@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
@@ -42,11 +41,29 @@ class _PasswordScreenState extends State<PasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFFff2b85),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0XFFff2b85),
+        actions: [
+          GestureDetector(
+            onTap: isPasswordValid ? _navigateToHomeScreen : null,
+            child: Text(
+              'Continue  ',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: isPasswordValid
+                    ? const Color(0XFFff2b85)
+                    : Colors.black.withOpacity(0.3),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Container(
           padding:
-              const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 12),
+              const EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 12),
           color: Colors.white,
           child: Form(
             key: _formKey,
@@ -54,37 +71,6 @@ class _PasswordScreenState extends State<PasswordScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        CupertinoIcons.back,
-                        color: Color(0XFFff2b85),
-                        size: 27,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: isPasswordValid ? _navigateToHomeScreen : null,
-                      child: Text(
-                        'Continue  ',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: isPasswordValid
-                              ? const Color(0XFFff2b85)
-                              : Colors.black.withOpacity(0.3),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
                 Image.asset('images/email_icon.png', scale: 4.6),
                 const SizedBox(
                   height: 15,

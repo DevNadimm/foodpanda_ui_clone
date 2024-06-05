@@ -24,10 +24,37 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFFff2b85),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: const Color(0XFFff2b85),
+        actions: [
+          GestureDetector(
+            onTap: isEmailValid
+                ? () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PasswordScreen(email: emailTEController.text),
+                ),
+              );
+            }
+                : null,
+            child: Text(
+              'Continue  ',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: isEmailValid
+                    ? const Color(0XFFff2b85)
+                    : Colors.black.withOpacity(0.3),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.only(top: 8, left: 12, right: 12, bottom: 12),
+          padding: const EdgeInsets.only(top: 12, left: 12, right: 12, bottom: 12),
           color: Colors.white,
           child: Form(
             key: _formKey,
@@ -35,46 +62,6 @@ class _EmailAuthScreenState extends State<EmailAuthScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        CupertinoIcons.back,
-                        color: Color(0XFFff2b85),
-                        size: 27,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: isEmailValid
-                          ? () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PasswordScreen(email: emailTEController.text),
-                          ),
-                        );
-                      }
-                          : null,
-                      child: Text(
-                        'Continue  ',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: isEmailValid
-                              ? const Color(0XFFff2b85)
-                              : Colors.black.withOpacity(0.3),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
                 Image.asset('images/email_icon.png', scale: 4.6),
                 const SizedBox(
                   height: 15,
