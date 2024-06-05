@@ -22,11 +22,11 @@ class LocationAccessScreen extends StatelessWidget {
               Text(
                 'Allow location access on the next screen for:',
                 style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w700,
                   color: const Color(0XFF000000).withOpacity(1),
                 ),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.start,
               ),
               const SizedBox(
                 height: 32,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodpanda_ui_clone/screens/email_auth_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -20,10 +21,7 @@ class AuthScreen extends StatelessWidget {
                   children: [
                     const Align(
                       alignment: Alignment.centerLeft,
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.white,
-                      ),
+                      child: Icon(Icons.close, color: Colors.white),
                     ),
                     Image.asset(
                       'images/auth_back.png',
@@ -51,8 +49,8 @@ class AuthScreen extends StatelessWidget {
                       const Text(
                         'Sign up or Log in',
                         style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 23,
+                            fontWeight: FontWeight.w700,
                             color: Colors.black),
                       ),
                       const SizedBox(
@@ -179,7 +177,14 @@ class AuthScreen extends StatelessWidget {
                         height: 12,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const EmailAuthScreen(),
+                            ),
+                          );
+                        },
                         child: Container(
                           width: double.infinity,
                           height: 55,
